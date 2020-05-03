@@ -29,5 +29,3 @@ def get_speeds(download,upload):
     if upload == 1:
         results.append(truncate(s.upload()/1000/1000,2) + " Mbit/s")
     return results
-
-print(get_speeds(1,1))
