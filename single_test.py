@@ -18,14 +18,15 @@ def truncate(f,decimals):
         i+=1
 
 # the arguments are boolans
-# returns a list
-def get_speeds(download,upload):
-    s = speedtest.Speedtest()
-    s.get_servers()
-    s.get_best_server()
-    results = []
-    if download == 1:
+# returns a type list
+def get_speeds():
+    try:
+        s = speedtest.Speedtest()
+        s.get_servers()
+        s.get_best_server()
+        results = []
         results.append(truncate(s.download()/1000/1000,2)) # Mbit/s
-    if upload == 1:
         results.append(truncate(s.upload()/1000/1000,2)) # Mbit/s
-    return results
+        return results
+    except:
+        return []

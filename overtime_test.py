@@ -24,8 +24,7 @@ def make_plots(d, u, t):
         plt.tight_layout()
         plt.savefig('upload_speeds.png')
 
-def overtime_test(download, upload):
-    overall, interval = get_input()
+def overtime_test(overall, intervals):
     start = time.time()
     get_time = time.time()
     datetimes = []
@@ -36,14 +35,11 @@ def overtime_test(download, upload):
         # chosen timestamp for a single test is right before the test rather than right after
         datetimes.append((time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(before)))[5:])
         print(datetimes[-1])
-        st = get_speeds(download,upload)
-        if download == 1:
-            downloads_lst.append(float(st[0]))
-        if upload == 1:
-            uploads_lst.append(float(st[1]))
+        st = get_speeds()
+        downloads_lst.append(float(st[0]))
+        uploads_lst.append(float(st[1]))
         after = time.time()
-        time.sleep(interval*60 - (after - before))
+        time.sleep(intervals*60 - (after - before))
         get_time = time.time()
         make_plots(downloads_lst, uploads_lst, datetimes)
-
-overtime_test(1,1)
+        os.system("open download_speeds.png upload_speeds.png")
