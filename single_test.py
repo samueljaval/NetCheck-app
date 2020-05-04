@@ -29,4 +29,4 @@ def get_speeds():
         results.append(truncate(s.upload()/1000/1000,2)) # Mbit/s
         return results
     except:
-        return []
+        return ["0","0"]

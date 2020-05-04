@@ -20,7 +20,7 @@ class MenuBar(rumps.App):
     def speedtest(self, _):
         dialogs.started_test()
         results = get_speeds()
-        if results != []:
+        if results != ["0","0"]:
             dialogs.test_results(results)
         else :
             dialogs.no_internet()
@@ -30,7 +30,7 @@ class MenuBar(rumps.App):
         overall = dialogs.get_overall()
         intervals = dialogs.get_interval()
         print(overall, intervals)
-        if self.overtime_started == 0:
+        if self.overtime_started == 0 or not(self.thread.isAlive()):
             overallnb = ""
             intervalsnb = ""
             for x in overall[0]:
