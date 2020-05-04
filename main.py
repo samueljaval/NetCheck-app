@@ -40,8 +40,8 @@ class MenuBar(rumps.App):
                 if x.isdigit():
                     intervalsnb += x
             print(float(overallnb), float(intervalsnb))
-            self.thread = threading.Thread(args=(int(overallnb), int(intervalsnb)))
-            self.thread.daemon = True
+            self.thread = threading.Thread(target = overtime_test, args=(int(overallnb), int(intervalsnb)))
+            self.thread.daemon = True #thread killed when program exit, i.e app quit
             self.thread.start()
             dialogs.start_analysis()
             self.overtime_started = 1

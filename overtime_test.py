@@ -30,16 +30,20 @@ def overtime_test(overall, intervals):
     datetimes = []
     downloads_lst = []
     uploads_lst = []
-    while get_time - start < overall*60:
-        before = time.time()
-        # chosen timestamp for a single test is right before the test rather than right after
-        datetimes.append((time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(before)))[5:])
-        print(datetimes[-1])
-        st = get_speeds()
-        downloads_lst.append(float(st[0]))
-        uploads_lst.append(float(st[1]))
-        after = time.time()
-        time.sleep(intervals*60 - (after - before))
-        get_time = time.time()
-        make_plots(downloads_lst, uploads_lst, datetimes)
-        os.system("open download_speeds.png upload_speeds.png")
+    try :
+        while get_time - start < overall*60:
+            before = time.time()
+            # chosen timestamp for a single test is right before the test rather than right after
+            datetimes.append((time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(before)))[5:])
+            print("ee")
+            print(datetimes[-1])
+            st = get_speeds()
+            downloads_lst.append(float(st[0]))
+            uploads_lst.append(float(st[1]))
+            after = time.time()
+            time.sleep(intervals*60 - (after - before))
+            get_time = time.time()
+            make_plots(downloads_lst, uploads_lst, datetimes)
+            os.system("open download_speeds.png upload_speeds.png")
+    except :
+        print("not a number")
