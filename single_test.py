@@ -25,7 +25,7 @@ def get_speeds(download,upload):
     s.get_best_server()
     results = []
     if download == 1:
-        results.append(truncate(s.download()/1000/1000,2) + " Mbit/s")
+        results.append(truncate(s.download()/1000/1000,2)) # Mbit/s
     if upload == 1:
-        results.append(truncate(s.upload()/1000/1000,2) + " Mbit/s")
+        results.append(truncate(s.upload()/1000/1000,2)) # Mbit/s
     return results

@@ -4,7 +4,25 @@ import os
 import matplotlib.pyplot as plt
 
 def get_input():
-    return 1, 1
+    return 10, 1
+
+def make_plots(d, u, t):
+    if d != [] :
+        plt.figure()
+        plt.plot(t,d)
+        plt.title("Results of Download speed analysis (in Mbit/s)",loc='center')
+        plt.xticks(rotation='vertical')
+        plt.ylabel('download speed in Mbit/s')
+        plt.tight_layout()
+        plt.savefig('download_speeds.png')
+    if u != []:
+        plt.figure()
+        plt.plot(t,u)
+        plt.title("Results of Upload speed analysis (in Mbit/s)",loc='center')
+        plt.xticks(rotation='vertical')
+        plt.ylabel('upload speed in Mbit/s')
+        plt.tight_layout()
+        plt.savefig('upload_speeds.png')
 
 def overtime_test(download, upload):
     overall, interval = get_input()
@@ -26,25 +44,6 @@ def overtime_test(download, upload):
         after = time.time()
         time.sleep(interval*60 - (after - before))
         get_time = time.time()
-    return downloads_lst, uploads_lst, datetimes
+        make_plots(downloads_lst, uploads_lst, datetimes)
 
-def get_plot(download, upload):
-    d, u, t = overtime_test(1,1)
-    if download == 1 :
-        plt.figure()
-        plt.plot(t,d)
-        plt.title("Results of Download speed analysis (in Mbit/s)",loc='center')
-        plt.xticks(rotation='vertical')
-        plt.ylabel('download speed in Mbit/s')
-        plt.tight_layout()
-        plt.savefig('download_speeds.png')
-    if upload == 1:
-        plt.figure()
-        plt.plot(t,u)
-        plt.title("Results of Upload speed analysis (in Mbit/s)",loc='center')
-        plt.xticks(rotation='vertical')
-        plt.ylabel('upload speed in Mbit/s')
-        plt.tight_layout()
-        plt.savefig('upload_speeds.png')
-
-get_plot(1,1)
+overtime_test(1,1)
