@@ -44,6 +44,6 @@ def overtime_test(overall, intervals):
             time.sleep(intervals*60 - (after - before))
             get_time = time.time()
             make_plots(downloads_lst, uploads_lst, datetimes)
-            os.system("open download_speeds.png upload_speeds.png")
+        os.system("open download_speeds.png upload_speeds.png")
     except :
         print("not a number")
