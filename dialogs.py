@@ -28,3 +28,9 @@ def get_interval():
 
 def start_analysis():
     pync.notify("The speed analysis has started", title="Speedtest")
+
+def show_time(remaining):
+    pync.notify("The remaining time is " + str(remaining) + " min", title="Speedtest")
+
+def not_started():
+    pync.notify("You have not started the overtime test", title="Speedtest")
