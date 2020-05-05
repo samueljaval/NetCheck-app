@@ -1,1 +1,1 @@
-# internet-speed-analysis
+# speedtest-and-analysis
