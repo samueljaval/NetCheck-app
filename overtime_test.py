@@ -78,7 +78,7 @@ def overtime_test(overall, intervals):
             datetimes.append((time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(before)))[5:])
             print(datetimes[-1], " --- starting speedtest n°", i)
             st = get_speeds()
-            print("Results of test n°", counter, " : Download = ", st[0], "Mbits/s ---- Upload = ", st[1], "Mbits/s")
+            print("Results of test n°", i, " : Download = ", st[0], "Mbits/s ---- Upload = ", st[1], "Mbits/s")
             downloads_lst.append(float(st[0]))
             uploads_lst.append(float(st[1]))
             after = time.time()
@@ -88,7 +88,7 @@ def overtime_test(overall, intervals):
         make_plots(downloads_lst, uploads_lst, datetimes)
         os.system("open download_speeds.png upload_speeds.png")
     except :
-         print("not a number")
+        print("something went wrong, check your inputs")
 
 if __name__ == "__main__":
     overall = input("For how long do you want to run this overtime speedtest? (answer in minutes) :  ")
