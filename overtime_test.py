@@ -47,6 +47,8 @@ def get_input():
     return 10, 1
 
 def make_plots(d, u, t):
+    if not(os.path.isdir("result-graphs")):
+        os.mkdir("result-graphs")
     if d != [] :
         plt.figure()
         plt.plot(t,d)
@@ -54,7 +56,7 @@ def make_plots(d, u, t):
         plt.xticks(rotation='vertical')
         plt.ylabel('download speed in Mbit/s')
         plt.tight_layout()
-        plt.savefig('download_speeds.png')
+        plt.savefig('result-graphs/download_speeds.png')
     if u != []:
         plt.figure()
         plt.plot(t,u)
@@ -62,7 +64,7 @@ def make_plots(d, u, t):
         plt.xticks(rotation='vertical')
         plt.ylabel('upload speed in Mbit/s')
         plt.tight_layout()
-        plt.savefig('upload_speeds.png')
+        plt.savefig('result-graphs/upload_speeds.png')
 
 def overtime_test(overall, intervals):
     start = time.time()
@@ -86,7 +88,7 @@ def overtime_test(overall, intervals):
             get_time = time.time()
             i += 1
         make_plots(downloads_lst, uploads_lst, datetimes)
-        os.system("open download_speeds.png upload_speeds.png")
+        os.system("open result-graphs/download_speeds.png result-graphs/upload_speeds.png")
     except :
         print("something went wrong, check your inputs")
 
