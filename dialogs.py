@@ -4,12 +4,17 @@ import rumps
 from single_test import truncate
 
 def test_results(results):
-    # pync.notify("Donwload Speed : " + results[0] + " Mbits/s \nUpload Speed : " + results[1] + " Mbits/s", title="Speedtest Results")
-    res = "Download Speed : " + results[0] + " Mbits/s\n Upload Speed : " + results[1] + " Mbits/s"
-    down = "\n 1GB of data will be downloaded in " + truncate( (8000/float(results[0])) / 60 , 2) + " minutes"
-    ups = "\n 1GB of data will be uploaded in " + truncate( (8000/float(results[1])) / 60 , 2) + " minutes"
-    explain = "\n Check out the Help section if you do not understand the units"
-    os.system("""osascript -e 'display dialog  " """+res + "\n" + down + ups + "\n" + explain + """ " buttons {"OK"} default button "OK" with title "SpeedTest Results"
+    resdown = "Download Speed : " + results[0] + " Mbits/s"
+    resup = "Upload Speed : " + results[1] + " Mbits/s"
+    #explain = "\nIf you do not understand the units, click the Help/About button for a little crash course"
+    if results[0] != "0":
+        show = resdown + "\n" + " 1GB of data will be downloaded in " + truncate( (8000/float(results[0])) / 60 , 2) + " minutes"
+    if results[1] != "0":
+        try:
+            show += "\n" + resup + "\n" + " 1GB of data will be uploaded in " + truncate( (8000/float(results[1])) / 60 , 2) + " minutes"
+        except:
+            show = resup + "\n" + " 1GB of data will be uploaded in " + truncate( (8000/float(results[1])) / 60 , 2) + " minutes" + "\n"
+    os.system("""osascript -e 'display dialog  " """+ show + """ " buttons {"OK"} default button "OK" with title "SpeedTest Results"
     '""")
 
 def started_test():
