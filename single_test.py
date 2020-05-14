@@ -1,12 +1,16 @@
-import speedtest
-try:
-    from halo import Halo
-except:
-    print("\n\nPlease download the loading spinner package : pip install halo")
-    print("or go to https://github.com/manrajgrover/halo \n\n")
+try :
+    import speedtest
+except :
+    print("\n\n\nPlease download the speedtest-cli package : pip install speedtest-cli")
+    print("or go to https://github.com/sivel/speedtest-cli \n\n\n")
+    print("THE PROGRAM WON'T RUN WITHOUT THIS PACKAGE!")
+# check for instalation of halo is done in overtime_test.py
+from halo import Halo
 
-#fix speedtest library
 import ssl
+#fix speedtest library certificate problem
+#this can create a slight security vulnerability
+#but I could not find another way of doing it
 ssl._create_default_https_context = ssl._create_unverified_context
 
 class GetSpeeds:
