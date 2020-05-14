@@ -1,6 +1,9 @@
 # overtime-speedtest
-
-<img src="imgs/graph.png" height="30%" width="30%" > <img src="imgs/console.png" height="30%" width="30%"> <img src="imgs/csv.png" height="30%" width="30%"> 
-graph of download speed created by the program   console log during execution    csv created by the program
+graph of download speed created by the program </br>
+<img src="imgs/graph.png" height="30%" width="30%" > 
+console log during execution</br>    
+<img src="imgs/console.png" height="50%" width="50%"> 
+csv created by the program</br>
+<img src="imgs/csv.png" height="30%" width="30%"> 
 
 
