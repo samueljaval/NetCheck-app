@@ -7,12 +7,6 @@ except :
 # check for instalation of halo is done in overtime_test.py
 from halo import Halo
 
-import ssl
-#fix speedtest library certificate problem
-#this can create a slight security vulnerability
-#but I could not find another way of doing it
-ssl._create_default_https_context = ssl._create_unverified_context
-
 class GetSpeeds:
 
     def __init__(self):
@@ -21,11 +15,14 @@ class GetSpeeds:
             self.s.get_servers()
             self.s.get_best_server()
         except:
-            print("No detected connection")
+            print("No detected connection!\n\n")
+            print("If you are connected to the internet, this could be a SLL certificate error!\n")
+            print("Please make sure you run the 'Install Certificates.command' file located in your python directory\n")
+            print("check this link for more details :")
+            print("https://stackoverflow.com/questions/56326644/python-speedtest-facing-problems-with-certification-ssl-c1056\n\n")
 
     def truncate(self,f,decimals):
         s = str(f)
-        res = ""
         decimals_bool = 0
         i = 0
         while i < len(s):
