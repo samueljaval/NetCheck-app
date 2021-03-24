@@ -20,7 +20,7 @@ The code has been written to be easily understood and the program has been made 
 1. Download the overtime_test.py and single_test.py files from this repository (making sure they end up in the same directory).
 2. Run 'python3 overtime_test.py' from a command line.
 3. If the program asks to download an additional library, please do so. 
-4. Check the command line after starting the program to see if there is a SLL certificate error. If so, some text will be printed to the command line to explain what to do. 
+4. IMPORTANT : Check the command line after starting the program to see if there is a SLL certificate error. If so, some text will be printed to the command line to explain what to do. 
 5. Wait until the program ends and check out the data from the created files (in the project directory). 
 
 ## Sample results provided in this repository
