@@ -1,11 +1,23 @@
-try :
+import tkinter as tk
+from tkinter import messagebox
+root = tk.Tk()
+root.withdraw()
+
+try:  
+    from halo import Halo
+except:
+    str1 = "Please download the loading spinner package : pip install halo\n\n"
+    str2 = "or go to https://github.com/manrajgrover/halo \n\n"
+    messagebox.showerror("Error", str1 + str2)
+    quit()
+try: 
     import speedtest
-except :
-    print("\n\n\nPlease download the speedtest-cli package : pip install speedtest-cli")
-    print("or go to https://github.com/sivel/speedtest-cli \n\n\n")
-    print("THE PROGRAM WON'T RUN WITHOUT THIS PACKAGE!")
-# check for instalation of halo is done in overtime_test.py
-from halo import Halo
+except:
+    str1 = "Please download the speedtest-cli package : pip install speedtest-cli\n\n"
+    str2 = "or go to https://github.com/sivel/speedtest-cli \n\n"
+    messagebox.showerror("Error", str1 + str2)
+    quit()
+
 
 class GetSpeeds:
 
@@ -46,7 +58,7 @@ class GetSpeeds:
         except:
             return "0"
 
-
+# used for testing
 if __name__ == "__main__":
     print("starting speedtest...\n")
     gs = GetSpeeds()

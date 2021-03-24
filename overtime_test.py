@@ -2,21 +2,37 @@ import os
 import sys
 import time
 import csv
+import tkinter as tk
+from tkinter import simpledialog
+from tkinter import messagebox
+root = tk.Tk()
+root.withdraw()
 
 # checking if packages are installed
 
-import single_test  # will check if speedtest is installed
-try:
+try:  
     from halo import Halo
 except:
-    print("\n\n\nPlease download the loading spinner package : pip install halo")
-    print("or go to https://github.com/manrajgrover/halo \n\n\n")
-    print("THE PROGRAM WON'T RUN WITHOUT THIS PACKAGE!")
+    str1 = "Please download the loading spinner package : pip install halo\n\n"
+    str2 = "or go to https://github.com/manrajgrover/halo \n\n"
+    messagebox.showerror("Error", str1 + str2)
+    quit()
+try: 
+    import speedtest
+except:
+    str1 = "Please download the speedtest-cli package : pip install speedtest-cli\n\n"
+    str2 = "or go to https://github.com/sivel/speedtest-cli \n\n"
+    messagebox.showerror("Error", str1 + str2)
+    quit()
 try:
     import matplotlib.pyplot as plt
 except:
-    print("\n\n\nPlease download the matplotlib package : pip install matplotlib")
-    print("or go to https://matplotlib.org/downloads.html \n\n\n")
+    str1 = "Please download the matplotlib package : pip install matplotlib\n\n"
+    str2 = "or go to https://matplotlib.org/downloads.html \n\n"
+    messagebox.showerror("Error", str1 + str2)
+    quit()
+
+import single_test  # will check if speedtest is installed
 
 # csv files containing raw data
 def make_csv(d, u, t, unit):
@@ -29,6 +45,7 @@ def make_csv(d, u, t, unit):
     with open('raw-data/upload_speeds.csv', 'w') as f:
         writer = csv.writer(f)
         writer.writerows(zip(t, u, units))
+
 
 # making plots with matplotlib
 def make_plots(d, u, t):
@@ -51,10 +68,12 @@ def make_plots(d, u, t):
             plt.tight_layout()
             plt.savefig('result-graphs/upload_speeds.png')
 
+
 # this function is defined just to have the Halo spinner as a decorator
 @Halo(text='waiting until next test', spinner='dots')
 def wait(t):
     time.sleep(t)
+
 
 # main function
 def overtime_test(overall, intervals):
@@ -84,23 +103,34 @@ def overtime_test(overall, intervals):
     try:
         make_plots(downloads_lst, uploads_lst, datetimes)
     except:
-        print("\n\nCould not make the plots because the matplotlib package is not installed\n\n")
+        print("\n\nCould not make the plots.\n\n")
     try:
         make_csv(downloads_lst, uploads_lst, datetimes, "Mbit/s")
     except:
-        print("\n\nCould not create the csv files\n\n")
+        print("\n\nCould not create the csv files.\n\n")
 
     print("\n\n\n\n\nYou now have the graphs of your analysis in the result-graphs directory\n")
     print("You also have raw data in the csv files in the raw-data directory\n\n\n")
 
 
 if __name__ == "__main__":
-    overall = input("For how long do you want to run this overtime speedtest? (answer in minutes) :  ")
-    interval = input("Give a time interval (in minutes) to run a speedtest :  ")
-    try :
-        if float(overall) > float(interval) and float(interval) >= 1:
-            overtime_test(float(overall), float(interval))
-        else :
-            print("your interval has to be greater than 1 minute and overall time has to be greater than interval")
-    except :
-        print("something went wrong")
+    overall = simpledialog.askinteger("value in minutes!", "For how long do you want to run this overtime speedtest? (answer in minutes)",
+                                 parent=root,
+                                 minvalue=1)
+    interval = simpledialog.askinteger("value in minutes!", "Give a time interval (in minutes) to run a speedtest :  ",
+                                 parent=root,
+                                 maxvalue=overall, minvalue=1)
+    if type(overall) == int and type(interval) == int:
+        messagebox.showinfo(
+        "Overtime SpeedTest just started!",
+        "Check your terminal to see how it's going.\n\nWhen it's finished, you can look at the results with the .csv and .png files that we created in the project directory."
+        )
+        overtime_test(float(overall), float(interval))
+        messagebox.showinfo(
+        "Overtime SpeedTest just finished!",
+        "Done!\n\nYou now have the graphs of your analysis in the result-graphs directory.\nYou also have raw data in the csv files in the raw-data directory"
+        )
+    else :
+        messagebox.showerror("Error", "Oops, something went wrong")
+        quit()
+
