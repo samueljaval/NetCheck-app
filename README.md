@@ -31,7 +31,9 @@ Here are snapshots of what is would look like when the program is run.
 
 <img src="imgs/prompt.png" height="50%" width="50%">
 <img src="imgs/message.png" height="50%" width="50%">
+<img src="imgs/package.png" height="50%" width="50%">
 <img src="imgs/console.png" height="70%" width="70%">
+
 
 
 
