@@ -24,7 +24,7 @@ The code has been written to be easily understood and the program has been made 
 5. Wait until the program ends and check out the data from the created files (in the project directory). 
 
 ## Sample results provided in this repository
-Have a look at the /raw-data and /result-graphs directories in this repository to see what the final data would look like. 
+Have a look at the `/raw-data` and `/result-graphs` directories in this repository to see what the final data would look like. 
 
 ## Snapshots
 Here are snapshots of what it would look like when the program is run. 
