@@ -26,11 +26,12 @@ The code has been written to be easily understood and the program has been made 
 ## Sample results provided in this repository
 Have a look at the /raw-data and /result-graphs directories in this repository to see what the final data would look like. 
 
-## While the program is executing
+## Snapshots
+Here are snapshots of what is would look like when the program is run. 
 
-This is what the user would see in their command line while the program is executing. 
+<img src="imgs/prompt.png" height="50%" width="50%">
+<img src="imgs/message.png" height="50%" width="50%">
+<img src="imgs/console.png" height="70%" width="70%">
 
-
-<img src="imgs/console.png" height="50%" width="50%">
 
 
