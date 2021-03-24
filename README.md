@@ -27,7 +27,7 @@ The code has been written to be easily understood and the program has been made 
 Have a look at the /raw-data and /result-graphs directories in this repository to see what the final data would look like. 
 
 ## Snapshots
-Here are snapshots of what is would look like when the program is run. 
+Here are snapshots of what it would look like when the program is run. 
 
 <img src="imgs/prompt.png" height="50%" width="50%">
 <img src="imgs/message.png" height="50%" width="50%">
