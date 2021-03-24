@@ -6,7 +6,7 @@ While the program is running, the user can look at the progress being made and t
 
 ## Design
 This project does not contain a huge amount of code but was designed to use Python quite comprehensively, including all the following features :
-- **Object Oriented Programming** : All the calculations for a single speedtest are encapsulated in an object defined by the GetSpeeds class in the single_test.py file.
+- **Object Oriented Programming** : All the calculations for a single speedtest are encapsulated in an object defined by the GetSpeeds class in the `single_test.py` file.
 - **Graphical User Interface** : Python's built in library Tkinter is used to prompt the user how long they want the program to run and at what frequency. It is also used to show error messages if the user is missing some libraries and telling them how to install those libraries to get the program up and running. 
 - **Plotting** : The data collected from all the speedtests is plotted (and stored in .png files) using Python's famous matplotlib library.
 - **File managment** : If all the data has been collected properly, two directories are created in the project directory: 
@@ -17,10 +17,10 @@ This project does not contain a huge amount of code but was designed to use Pyth
 The code has been written to be easily understood and the program has been made to make the user experience as easy as possible by pointing at anything that could go wrong (particularly missing packages). 
 
 ## How to run it
-1. Download the overtime_test.py and single_test.py files from this repository (making sure they end up in the same directory).
-2. Run 'python3 overtime_test.py' from a command line.
+1. Download the `overtime_test.py` and `single_test.py` files from this repository (making sure they end up in the same directory).
+2. Run `python3 overtime_test.py` from a command line.
 3. If the program asks to download an additional library, please do so. 
-4. IMPORTANT : Check the command line after starting the program to see if there is a SLL certificate error. If so, some text will be printed to the command line to explain what to do. 
+4. **IMPORTANT** : Check the command line after starting the program to see if there is a SLL certificate error. If so, some text will be printed to the command line to explain what to do. 
 5. Wait until the program ends and check out the data from the created files (in the project directory). 
 
 ## Sample results provided in this repository
