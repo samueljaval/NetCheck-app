@@ -14,7 +14,7 @@ This project does not contain a significant amount of code but uses Python quite
 - **File managment** : If all the data has been collected properly, two directories are created in the project directory: 
     - `/raw-data` : contains the raw data stored in .csv files. 
     - `/result-graphs` : contains the graphs of the data plotted with matplotlib.
-- **Python Function Decorator** : The halo library with its function decorators is used to created loading spinners that are shown while a test is running in the user's terminal.
+- **Python Function Decorator** : The halo library with its function decorators is used to created loading spinners that are shown while a test is running in the user's terminal which gives more information to the user about what is currently happening. 
 
 The code has been written to be easily understood and the program has been made to make the user experience as easy as possible by pointing at anything that could go wrong (particularly missing packages). 
 
