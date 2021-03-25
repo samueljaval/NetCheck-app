@@ -10,7 +10,7 @@ I was often wondering how much my internet speed could fluctuate during the day 
 This project does not contain a significant amount of code but uses Python quite comprehensively, including all the following features :
 - **Object Oriented Programming** : All the calculations for a single speedtest are encapsulated in an object defined by the GetSpeeds class in the `single_test.py` file.
 - **Graphical User Interface** : Python's built in library Tkinter is used to prompt the user for overall duration and frequency. It is also used to show error messages if the user is missing some libraries and telling them how to install those libraries to get the program up and running. 
-- **Plotting** : The data collected from all the speedtests is plotted (and stored in .png files) using Python's famous matplotlib library which makes it easy to see the speed fluctuations. 
+- **Plotting** : The data collected from all the speedtests is plotted (and stored in .png files) using Python's famous matplotlib library making it easy to see the speed fluctuations. 
 - **File managment** : If all the data has been collected properly, two directories are created in the project directory: 
     - `/raw-data` : contains the raw data stored in .csv files. 
     - `/result-graphs` : contains the graphs of the data plotted with matplotlib.
