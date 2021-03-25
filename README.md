@@ -1,7 +1,7 @@
 # :dash: overtime-speedtest :dash:
 
 ## Project Overview 
-The goal of this project is to run a sequence of internet speedtests overtime. The user will be able to decide how long they want the program to run for and how frequently they want to run a speedtest. For example, one could choose to run the program for 5 hours with speedtests every 10 minutes. At the end of the run, the user will have access to the raw data and graphs of the data.   
+The goal of this project is to run a sequence of internet speedtests over time. The user will be able to decide how long they want the program to run for and how frequently they want to run a speedtest. For example, one could choose to run the program for 5 hours with speedtests every 10 minutes. At the end of the run, the user will have access to the raw data and graphs of the data.   
 While the program is running, the user can look at the progress being made and the values from each completed test in their terminal. 
 
 ## Design
